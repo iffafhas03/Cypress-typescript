@@ -7,28 +7,6 @@ let dashboardPage = new DashboardPage();
 let cartPage = new CartPage();
 const URL = "https://www.saucedemo.com/";
 
-it("Test LOGIN", () => {
-  loginPage.login(URL, "standard_user", "secret_sauce");
-  loginPage.assertLogin();
-});
-
-it("Test Sauce Demo Invalid Password", () => {
-  loginPage.login(URL, "standard_user", "invalidPass");
-  loginPage.assertLoginFail();
-});
-
-it("Test Sauce Demo Sauce labs product backpack", () => {
-  loginPage.login(URL, "standard_user", "secret_sauce");
-  loginPage.assertLogin();
-  dashboardPage.sauceLabsBackpack();
-});
-
-it("success add item to basket", () => {
-  loginPage.login(URL, "standard_user", "secret_sauce");
-  loginPage.assertLogin();
-  dashboardPage.clickAddItemDashboard();
-});
-
 it("success checkout item", () => {
   loginPage.login(URL, "standard_user", "secret_sauce");
   loginPage.assertLogin();
@@ -36,9 +14,20 @@ it("success checkout item", () => {
   dashboardPage.clickBasket();
   cartPage.assertCart();
   cartPage.clickcheckout();
-  cartPage.fillData("ica","ica","40184");
+  cartPage.fillData("ica", "ica", "40184");
   cartPage.clickContinue();
   cartPage.assertCheckoutOverview();
   cartPage.clickFinish();
-
+});
+it("blank lastname data", () => {
+  loginPage.login(URL, "standard_user", "secret_sauce");
+  loginPage.assertLogin();
+  dashboardPage.clickAddItemDashboard();
+  dashboardPage.clickBasket();
+  cartPage.assertCart();
+  cartPage.clickcheckout();
+  cartPage.fillData("ica", " ", "40184");
+  cartPage.clickContinue();
+  cartPage.assertCheckoutOverview();
+  cartPage.clickFinish();
 });

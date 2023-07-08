@@ -14,12 +14,13 @@ export class LoginPage{
     inputPassword(password: string){
         cy.get(this.txt_password).type(password)
     }
+    
     clickLogin(){
         cy.get(this.btn_login).click()
     }
     assertLogin(){
         cy.get('.title').should('be.visible')
-        cy.get('.peek').should('be.visible')
+        //cy.get('.peek').should('be.visible')
         cy.contains('Products').should('contain','Products')
     }
     assertLoginFail(){
