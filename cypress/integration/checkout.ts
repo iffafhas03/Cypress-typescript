@@ -7,6 +7,11 @@ let dashboardPage = new DashboardPage();
 let cartPage = new CartPage();
 const URL = "https://www.saucedemo.com/";
 
+it("success add item to basket", () => {
+  loginPage.login(URL, "standard_user", "secret_sauce");
+  loginPage.assertLogin();
+  dashboardPage.clickAddItemDashboard();
+});
 it("success checkout item", () => {
   loginPage.login(URL, "standard_user", "secret_sauce");
   loginPage.assertLogin();
@@ -19,15 +24,14 @@ it("success checkout item", () => {
   cartPage.assertCheckoutOverview();
   cartPage.clickFinish();
 });
-it("blank lastname data", () => {
+it("Fill blank data on form checkout", () => {
   loginPage.login(URL, "standard_user", "secret_sauce");
   loginPage.assertLogin();
   dashboardPage.clickAddItemDashboard();
   dashboardPage.clickBasket();
   cartPage.assertCart();
   cartPage.clickcheckout();
-  cartPage.fillData("ica", " ", "40184");
+  //cartPage.fillData(null,null,null);
   cartPage.clickContinue();
-  cartPage.assertCheckoutOverview();
-  cartPage.clickFinish();
+  cartPage.noficationErrorDataBlank();
 });

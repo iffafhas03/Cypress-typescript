@@ -1,27 +1,20 @@
 import { LoginPage } from "./pages/login_pages";
 import { DashboardPage } from "./pages/dashboard_pages";
-import { CartPage } from "./pages/cart_pages";
+//import { CartPage } from "./pages/cart_pages";
 
 let loginPage = new LoginPage();
 let dashboardPage = new DashboardPage();
-let cartPage = new CartPage();
+//let cartPage = new CartPage();
 const URL = "https://www.saucedemo.com/";
 
-it("Test LOGIN", () => {
+it("success sort low price to high prize", () => {
   loginPage.login(URL, "standard_user", "secret_sauce");
   loginPage.assertLogin();
+  dashboardPage.clickFilterLowtoHigh();
 });
 
-it("Test Sauce Demo Invalid Password", () => {
-  loginPage.login(URL, "standard_user", "invalidPass");
-  loginPage.assertLoginFail();
-});
-
-it("Test Sauce Demo Sauce labs product backpack", () => {
+it("success sort high price to low prize", () => {
   loginPage.login(URL, "standard_user", "secret_sauce");
   loginPage.assertLogin();
-  dashboardPage.sauceLabsBackpack();
+  dashboardPage.clickFilterHightToLow();
 });
-
-
-

@@ -35,9 +35,15 @@ export class CartPage {
     this.inputLastname(lastname);
     this.inputPostalcode(postalCode);
   }
+  
+  noficationErrorDataBlank(){
+    cy.get('[data-test="error"]');
+  }
+  
   clickContinue() {
     cy.get(this.btn_continue).click();
   }
+
   //Checkout: Overview
   assertCheckoutOverview() {
     cy.get(".title").should("be.visible");

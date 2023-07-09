@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-07-09T15:18:52.808Z",
+    "end": "2023-07-09T15:19:01.201Z",
+    "duration": 8393,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0370027e-f022-4d69-8ffd-973f3f10c7fb",
+      "title": "",
+      "fullFile": "cypress/integration/checkout.ts",
+      "file": "cypress/integration/checkout.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "success add item to basket",
+          "fullTitle": "success add item to basket",
+          "timedOut": null,
+          "duration": 2436,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "loginPage.login(URL, \"standard_user\", \"secret_sauce\");\nloginPage.assertLogin();\ndashboardPage.clickAddItemDashboard();",
+          "err": {},
+          "uuid": "93a6d866-ba66-43fc-b43d-413ddbe24608",
+          "parentUUID": "0370027e-f022-4d69-8ffd-973f3f10c7fb",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "success checkout item",
+          "fullTitle": "success checkout item",
+          "timedOut": null,
+          "duration": 2501,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "loginPage.login(URL, \"standard_user\", \"secret_sauce\");\nloginPage.assertLogin();\ndashboardPage.clickAddItemDashboard();\ndashboardPage.clickBasket();\ncartPage.assertCart();\ncartPage.clickcheckout();\ncartPage.fillData(\"ica\", \"ica\", \"40184\");\ncartPage.clickContinue();\ncartPage.assertCheckoutOverview();\ncartPage.clickFinish();",
+          "err": {},
+          "uuid": "63f3685a-d953-4f6c-a338-4ce18986c74e",
+          "parentUUID": "0370027e-f022-4d69-8ffd-973f3f10c7fb",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Fill blank data on form checkout",
+          "fullTitle": "Fill blank data on form checkout",
+          "timedOut": null,
+          "duration": 1745,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "loginPage.login(URL, \"standard_user\", \"secret_sauce\");\nloginPage.assertLogin();\ndashboardPage.clickAddItemDashboard();\ndashboardPage.clickBasket();\ncartPage.assertCart();\ncartPage.clickcheckout();\n//cartPage.fillData(null,null,null);\ncartPage.clickContinue();\ncartPage.noficationErrorDataBlank();",
+          "err": {},
+          "uuid": "9f843885-45fa-453c-ad66-18d0d6ad5392",
+          "parentUUID": "0370027e-f022-4d69-8ffd-973f3f10c7fb",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "93a6d866-ba66-43fc-b43d-413ddbe24608",
+        "63f3685a-d953-4f6c-a338-4ce18986c74e",
+        "9f843885-45fa-453c-ad66-18d0d6ad5392"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 6682,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chart": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
